@@ -29,6 +29,8 @@
 import uvm_pkg::*;
 
 `include "uvm_macros.svh"
+`include "cvxif_types.svh"
+
 
 `ifndef DPI_FESVR_SPIKE_UTILS
 `define DPI_FESVR_SPIKE_UTILS
@@ -46,6 +48,20 @@ module cva6_tb_wrapper import uvmt_cva6_pkg::*; #(
   parameter type rvfi_probes_instr_t = logic,
   parameter type rvfi_probes_csr_t = logic,
   parameter type rvfi_probes_t = logic,
+  // CVXIF Types
+  localparam type readregflags_t      = `READREGFLAGS_T(CVA6Cfg),
+  localparam type writeregflags_t     = `WRITEREGFLAGS_T(CVA6Cfg),
+  localparam type id_t                = `ID_T(CVA6Cfg),
+  localparam type hartid_t            = `HARTID_T(CVA6Cfg),
+  localparam type x_compressed_req_t  = `X_COMPRESSED_REQ_T(CVA6Cfg, hartid_t),
+  localparam type x_compressed_resp_t = `X_COMPRESSED_RESP_T(CVA6Cfg),
+  localparam type x_issue_req_t       = `X_ISSUE_REQ_T(CVA6Cfg, hartit_t, id_t),
+  localparam type x_issue_resp_t      = `X_ISSUE_RESP_T(CVA6Cfg, writeregflags_t, readregflags_t),
+  localparam type x_register_t        = `X_REGISTER_T(CVA6Cfg, hartid_t, id_t, readregflags_t),
+  localparam type x_commit_t          = `X_COMMIT_T(CVA6Cfg, hartid_t, id_t),
+  localparam type x_result_t          = `X_RESULT_T(CVA6Cfg, hartid_t, id_t, writeregflags_t),
+  localparam type cvxif_req_t         = `CVXIF_REQ_T(CVA6Cfg, x_compressed_req_t, x_issue_req_t, x_register_req_t, x_commit_t),
+  localparam type cvxif_resp_t        = `CVXIF_RESP_T(CVA6Cfg, x_compressed_resp_t, x_issue_resp_t, x_result_t),
   //
   parameter int unsigned AXI_USER_EN       = 0,
   parameter int unsigned NUM_WORDS         = 2**25
@@ -56,8 +72,8 @@ module cva6_tb_wrapper import uvmt_cva6_pkg::*; #(
   output logic [31:0]                  tb_exit_o,
   output rvfi_instr_t [CVA6Cfg.NrCommitPorts-1:0] rvfi_o,
   output rvfi_csr_t                    rvfi_csr_o,
-  input  cvxif_pkg::cvxif_resp_t       cvxif_resp,
-  output cvxif_pkg::cvxif_req_t        cvxif_req,
+  input  logic [2:0]                   irq_i,
+  uvma_debug_if                        debug_if,
   uvma_axi_intf                        axi_slave,
   uvmt_axi_switch_intf                 axi_switch_vif,
   uvmt_default_inputs_intf             default_inputs_vif
@@ -75,26 +91,38 @@ module cva6_tb_wrapper import uvmt_cva6_pkg::*; #(
   assign rvfi_o = rvfi_instr;
   assign rvfi_csr_o = rvfi_csr;
 
+  cvxif_req_t  cvxif_req;
+  cvxif_resp_t cvxif_resp;
+
   cva6 #(
      .CVA6Cfg ( CVA6Cfg ),
      .rvfi_probes_instr_t  ( rvfi_probes_instr_t ),
      .rvfi_probes_csr_t    ( rvfi_probes_csr_t   ),
      .rvfi_probes_t        ( rvfi_probes_t       )
    ) i_cva6 (
-    .clk_i                ( clk_i                     ),
-    .rst_ni               ( rst_ni                    ),
-    .boot_addr_i          ( boot_addr_i               ),//Driving the boot_addr value from the core control agent
+    .clk_i                ( clk_i                        ),
+    .rst_ni               ( rst_ni                       ),
+    .boot_addr_i          ( boot_addr_i                  ),//Driving the boot_addr value from the core control agent
     .hart_id_i            ( default_inputs_vif.hart_id   ),
-    .irq_i                ( default_inputs_vif.irq       ),
-    .ipi_i                ( default_inputs_vif.ipi       ),
-    .time_irq_i           ( default_inputs_vif.time_irq  ),
-    .debug_req_i          ( default_inputs_vif.debug_req ),
+    .irq_i                ( {1'b0, irq_i[0]}             ),
+    .ipi_i                ( irq_i[1]                     ),
+    .time_irq_i           ( irq_i[2]                     ),
+    .debug_req_i          ( debug_if.debug_req           ),
     .rvfi_probes_o        ( rvfi_probes                  ),
-    .cvxif_req_o          ( cvxif_req                 ),
-    .cvxif_resp_i         ( cvxif_resp                ),
+    .cvxif_req_o          ( cvxif_req                    ),
+    .cvxif_resp_i         ( cvxif_resp                   ),
     .noc_req_o            ( axi_ariane_req            ),
     .noc_resp_i           ( axi_ariane_resp           )
   );
+
+  if (CVA6Cfg.CvxifEn) begin : gen_cvxif_default_response
+    always_comb begin
+      cvxif_resp = '0;
+      cvxif_resp.compressed_ready = 1'b1;
+      cvxif_resp.issue_ready = 1'b1;
+      cvxif_resp.register_ready = 1'b1;
+    end
+  end
 
   //----------------------------------------------------------------------------
   // RVFI

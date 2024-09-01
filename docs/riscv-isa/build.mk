@@ -19,22 +19,23 @@ setup:
 	mkdir -p build/riscv-isa-manual
 	cp -r $(riscv-isa_dir)/riscv-isa-manual/* build/riscv-isa-manual
 	cp -r $(riscv-isa_dir)/src build/riscv-isa-manual
-	cp -r src build/riscv-isa-manual
+	cp -r $(riscv-isa_dir)/../common/*.adoc build/riscv-isa-manual/src
+	cp ../config/config.adoc build/riscv-isa-manual/src
 
 priv-pdf: setup
-	cd build/riscv-isa-manual/build; make priv-pdf
+	cd build/riscv-isa-manual; make SKIP_DOCKER=true build/riscv-privileged.pdf
 	cp ./build/riscv-isa-manual/build/riscv-privileged.pdf priv-isa-$(CONFIG).pdf
 
 priv-html: setup
-	cd build/riscv-isa-manual/build; make priv-html
+	cd build/riscv-isa-manual; make SKIP_DOCKER=true build/riscv-privileged.html
 	cp ./build/riscv-isa-manual/build/riscv-privileged.html priv-isa-$(CONFIG).html
 
 unpriv-pdf: setup
-	cd build/riscv-isa-manual/build; make unpriv-pdf
+	cd build/riscv-isa-manual; make SKIP_DOCKER=true build/riscv-unprivileged.pdf
 	cp ./build/riscv-isa-manual/build/riscv-unprivileged.pdf unpriv-isa-$(CONFIG).pdf
 
 unpriv-html: setup
-	cd build/riscv-isa-manual/build; make unpriv-html
+	cd build/riscv-isa-manual; make SKIP_DOCKER=true build/riscv-unprivileged.html
 	cp ./build/riscv-isa-manual/build/riscv-unprivileged.html unpriv-isa-$(CONFIG).html
 
 clean:

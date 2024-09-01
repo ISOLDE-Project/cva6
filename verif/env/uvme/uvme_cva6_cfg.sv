@@ -34,17 +34,15 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
    rand bit                      scoreboard_enabled;
    rand bit                      tandem_enabled;
    rand bit                      cov_model_enabled;
-   rand bit                      cov_cvxif_model_enabled;
-   rand bit                      cov_isa_model_enabled;
    rand bit                      trn_log_enabled;
    rand int unsigned             sys_clk_period;
 
    // Agent cfg handles
    rand uvma_clknrst_cfg_c    clknrst_cfg;
-   rand uvma_cvxif_cfg_c      cvxif_cfg;
    rand uvma_axi_cfg_c        axi_cfg;
    rand uvma_rvfi_cfg_c#(ILEN,XLEN)       rvfi_cfg;
    rand uvma_isacov_cfg_c                 isacov_cfg;
+   rand uvma_interrupt_cfg_c              interrupt_cfg;
 
    // Zicond extension
    rand bit                      ext_zicond_supported;
@@ -58,11 +56,8 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
    // Zihpm extension
    rand bit                      ext_zihpm_supported;
 
-   // hypervisor mode
-   rand bit                      mode_h_supported;
-
-   // Handle to RTL configuration
-   rand cva6_cfg_t         CVA6Cfg;
+   // MMU support
+   rand bit                      MmuPresent;
 
    `uvm_object_utils_begin(uvme_cva6_cfg_c)
       `uvm_field_int (                         enabled                     , UVM_DEFAULT          )
@@ -75,18 +70,18 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
       `uvm_field_int (                         HPDCache_supported          , UVM_DEFAULT          )
       `uvm_field_int (                         nr_pmp_entries              , UVM_DEFAULT          )
       `uvm_field_int (                         ext_zihpm_supported         , UVM_DEFAULT          )
-      `uvm_field_int (                         mode_h_supported            , UVM_DEFAULT          )
+      `uvm_field_int (                         MmuPresent                  , UVM_DEFAULT          )
       `uvm_field_int (                         sys_clk_period            , UVM_DEFAULT + UVM_DEC)
 
       `uvm_field_object(clknrst_cfg, UVM_DEFAULT)
-
-      `uvm_field_object(cvxif_cfg, UVM_DEFAULT)
 
       `uvm_field_object(axi_cfg, UVM_DEFAULT)
 
       `uvm_field_object(rvfi_cfg,    UVM_DEFAULT)
 
       `uvm_field_object(isacov_cfg,  UVM_DEFAULT)
+
+      `uvm_field_object(interrupt_cfg,  UVM_DEFAULT)
 
    `uvm_object_utils_end
 
@@ -100,51 +95,13 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
       soft sys_clk_period          == uvme_cva6_sys_default_clk_period; // see uvme_cva6_constants.sv
    }
 
-   constraint cvxif_feature { //CV32A65X do not support dual read & write also the memory interface
-      cvxif_cfg.dual_read_write_support_x  == 0;
-      cvxif_cfg.load_store_support_x       == 0;
-      cvxif_cfg.seq_cus_instr_x2_enabled   == 1;
-      cvxif_cfg.reg_cus_crosses_enabled    == 0;
-      cvxif_cfg.mode_s_supported           == CVA6Cfg.RVS;
-      cvxif_cfg.mode_u_supported           == CVA6Cfg.RVU;
-   }
-
    constraint cva6_riscv_cons {
-      xlen == CVA6Cfg.XLEN;
-      ilen == 32;
+      xlen == RTLCVA6Cfg.XLEN;
 
-      ext_i_supported        == 1;
-      ext_a_supported        == CVA6Cfg.RVA;
-      ext_m_supported        == 1;
-      ext_c_supported        == CVA6Cfg.RVC;
-      ext_p_supported        == 0;
-      ext_v_supported        == CVA6Cfg.RVV;
-      ext_f_supported        == CVA6Cfg.RVF;
-      ext_d_supported        == CVA6Cfg.RVD;
-      ext_zba_supported      == CVA6Cfg.RVB;
-      ext_zbb_supported      == CVA6Cfg.RVB;
-      ext_zbc_supported      == CVA6Cfg.RVB;
-      ext_zbe_supported      == 0;
-      ext_zbf_supported      == 0;
-      ext_zbm_supported      == 0;
-      ext_zbp_supported      == 0;
-      ext_zbr_supported      == 0;
-      ext_zbs_supported      == CVA6Cfg.RVB;
-      ext_zbt_supported      == 0;
-      ext_zifencei_supported == 1;
-      ext_zicsr_supported    == 1;
-      ext_zicond_supported   == CVA6Cfg.RVZiCond;
-      ext_zcb_supported      == CVA6Cfg.RVZCB;
       ext_zihpm_supported    == 0;
-      ext_zicntr_supported   == 0;
+      ext_zicond_supported   == RTLCVA6Cfg.RVZiCond;
 
-      mode_s_supported       == CVA6Cfg.RVS;
-      mode_u_supported       == CVA6Cfg.RVU;
-      mode_h_supported       == CVA6Cfg.RVH;
-
-      pmp_supported          == (CVA6Cfg.NrPMPEntries > 0);
-      nr_pmp_entries         == 16;
-      debug_supported        == CVA6Cfg.DebugEn;
+      nr_pmp_entries         == 64;
 
       unaligned_access_supported     == 0;
       unaligned_access_amo_supported == 0;
@@ -158,7 +115,9 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
       dm_halt_addr_valid      == 1;
       dm_exception_addr_valid == 1;
       nmi_addr_valid          == 1;
-      HPDCache_supported      == (CVA6Cfg.DCacheType == 2);
+      HPDCache_supported      == (RTLCVA6Cfg.DCacheType == 2);
+
+      MmuPresent              == RTLCVA6Cfg.MmuPresent;
    }
 
    constraint ext_const {
@@ -186,11 +145,20 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
       (!dm_exception_addr_plusarg_valid) -> (dm_exception_addr == 'h0000_0000);
    }
 
+   constraint default_interrupt_cons {
+      if (interrupt_cfg.interrupt_plusarg_valid) {
+         interrupt_cfg.enable_interrupt == 'h1;
+      }
+      else
+         interrupt_cfg.enable_interrupt == 'h0;
+   }
+
    constraint agent_cfg_cons {
       if (enabled) {
-         clknrst_cfg.enabled   == 1;
-         isacov_cfg.enabled    == 1;
-         rvfi_cfg.enabled      == 1;
+         clknrst_cfg.enabled    == 1;
+         isacov_cfg.enabled     == 1;
+         rvfi_cfg.enabled       == 1;
+         interrupt_cfg.enabled  == 1;
       }
 
       isacov_cfg.seq_instr_group_x2_enabled == 1;
@@ -199,14 +167,15 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
       isacov_cfg.seq_instr_x2_enabled       == 1;
       isacov_cfg.reg_crosses_enabled        == 0;
       isacov_cfg.reg_hazards_enabled        == 1;
-      rvfi_cfg.nret                         == CVA6Cfg.NrCommitPorts;
+      rvfi_cfg.nret                         == RTLCVA6Cfg.NrCommitPorts;
       unified_traps                         == 0;
       axi_cfg.rand_channel_delay_enabled    == 0;
 
       if (is_active == UVM_ACTIVE) {
-         clknrst_cfg.is_active   == UVM_ACTIVE;
-         isacov_cfg.is_active    == UVM_PASSIVE;
-         rvfi_cfg.is_active      == UVM_PASSIVE;
+         clknrst_cfg.is_active        == UVM_ACTIVE;
+         isacov_cfg.is_active         == UVM_PASSIVE;
+         rvfi_cfg.is_active           == UVM_PASSIVE;
+         interrupt_cfg.is_active      == UVM_ACTIVE;
       }
 
       if (trn_log_enabled) {
@@ -217,12 +186,9 @@ class uvme_cva6_cfg_c extends uvma_core_cntrl_cfg_c;
       }
 
       if (cov_model_enabled) {
-         cvxif_cfg.cov_model_enabled  == 1;
-         isacov_cfg.cov_model_enabled == 1;
-         axi_cfg.cov_model_enabled == 1;
-         //env coverage models
-         cov_cvxif_model_enabled == 1;
-         cov_isa_model_enabled   == 1;
+         isacov_cfg.cov_model_enabled    == 1;
+         axi_cfg.cov_model_enabled       == 1;
+         interrupt_cfg.cov_model_enabled == 1;
       }
 
    }
@@ -250,10 +216,10 @@ function uvme_cva6_cfg_c::new(string name="uvme_cva6_cfg");
    super.new(name);
 
    clknrst_cfg  = uvma_clknrst_cfg_c::type_id::create("clknrst_cfg");
-   cvxif_cfg    = uvma_cvxif_cfg_c::type_id::create("cvxif_cfg");
    axi_cfg      = uvma_axi_cfg_c::type_id::create("axi_cfg");
    rvfi_cfg     = uvma_rvfi_cfg_c#(ILEN,XLEN)::type_id::create("rvfi_cfg");
    isacov_cfg   = uvma_isacov_cfg_c::type_id::create("isacov_cfg");
+   interrupt_cfg   = uvma_interrupt_cfg_c::type_id::create("interrupt_cfg");
 
    isacov_cfg.core_cfg = this;
    rvfi_cfg.core_cfg = this;
@@ -297,9 +263,7 @@ function void uvme_cva6_cfg_c::set_unsupported_csr_mask();
    super.set_unsupported_csr_mask();
 
    // Remove unsupported CSRs for Embedded configuration
-   unsupported_csr_mask[uvma_core_cntrl_pkg::MTVAL2] = 1;
    unsupported_csr_mask[uvma_core_cntrl_pkg::MCOUNTINHIBIT] = 1;
-   unsupported_csr_mask[uvma_core_cntrl_pkg::MTINST] = 1;
 
    // Add supported CSRs for Embedded configuration
    for (int i = 0; i < MAX_NUM_HPMCOUNTERS; i++) begin
