@@ -9,8 +9,8 @@ git clone https://github.com/openhwgroup/cva6.git
 cd cva6
 git submodule update --init --recursive
 ```
-2. Setup the environment
-2a. Initial setup
+2. Setup the environment  
+2a. Initial setup  
 The recommended toolchain, see [here](https://github.com/openhwgroup/core-v-verif/blob/master/mk/TOOLCHAIN.md) for all CORE-V cores is available from Embecosm
 [here](https://www.embecosm.com/resources/tool-chain-downloads/#corev). Unpack the tar.gz file to **/path/to/toolchain/installation/directory**. In **tools** folder, create a symbolic link to save (some) hard disk space
 ```
