@@ -32,3 +32,4 @@ export CV_SW_TOOLCHAIN=$ROOT_DIR/install/corev-openhw-gcc-ubuntu2004-20240530
 export CV_SW_PREFIX=riscv32-corev-elf-
 export CV_SW_MARCH=rv32imc_zicsr
 export RISCV=$ROOT_DIR/tools/corev-openhw-gcc
+export NUM_JOBS=10

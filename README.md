@@ -21,7 +21,8 @@ Install verilator:
 ```
 . ./setup.sh
 export NUM_JOBS=10
-. verif/regress/install-verilator.sh
+. ./verif/regress/install-verilator.sh
+. ./verif/regress/install-spike.sh
 ```
 2b.
 ```
@@ -29,10 +30,27 @@ export NUM_JOBS=10
 ```
 
 3. 
-```
-make sim-verilator
+Here is how you can run the hello world C program with the Verilator model: 
 
-```
+```sh
+# Make sure to source this script from the root directory 
+# to correctly set the environment variables related to the tools
+source verif/sim/setup-env.sh
+
+# Set the NUM_JOBS variable to increase the number of parallel make jobs
+# export NUM_JOBS=
+
+export DV_SIMULATORS=veri-testharness
+
+cd ./verif/sim
+
+python3 cva6.py --target cv32a6_imac_sv32 --iss=$DV_SIMULATORS --iss_yaml=cva6.yaml \
+--c_tests ../tests/custom/hello_world/hello_world.c \
+--linker=../tests/custom/common/test.ld \
+--gcc_opts="-static -mcmodel=medany -fvisibility=hidden -nostdlib \
+-nostartfiles -g ../tests/custom/common/syscalls.c \
+../tests/custom/common/crt.S -lgcc \
+-I../tests/custom/env -I../tests/custom/common"
 
 [CVA6 dashboard](util/toolchain-builder/README.md#Prerequisites)
 
