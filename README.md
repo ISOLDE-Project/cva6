@@ -1,5 +1,37 @@
 ![Build Status](https://github.com/openhwgroup/cva6/actions/workflows/ci.yml/badge.svg?branch=master)
 
+# ISOLDE
+## CORE-V Toolchain
+The recommended toolchain, see [here](https://github.com/openhwgroup/core-v-verif/blob/master/mk/TOOLCHAIN.md) for all CORE-V cores is available from Embecosm
+[here](https://www.embecosm.com/resources/tool-chain-downloads/#corev). Unpack the tar.gz file to **/path/to/toolchain/installation/directory**. In **tools** folder, create a symbolic link to save (some) hard disk space
+```
+ cd tools
+ ln -s /path/to/toolchain/installation/directory corev-openhw-gcc
+```
+Everything in the root folder.
+1. Checkout the repository and initialize all submodules.
+```sh
+git clone https://github.com/openhwgroup/cva6.git
+cd cva6
+git submodule update --init --recursive
+```
+2. Setup the environment
+2a. Initial setup
+```
+. ./setup.sh
+export NUM_JOBS=10
+. verif/regress/install-verilator.sh
+```
+2b.
+```
+. ./eth.sh
+```
+
+3. 
+```
+make sim-verilator
+
+```
 
 # CVA6 RISC-V CPU
 
