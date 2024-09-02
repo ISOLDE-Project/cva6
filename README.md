@@ -51,7 +51,7 @@ python3 cva6.py --target cv32a6_imac_sv32 --iss=$DV_SIMULATORS --iss_yaml=cva6.y
 -nostartfiles -g ../tests/custom/common/syscalls.c \
 ../tests/custom/common/crt.S -lgcc \
 -I../tests/custom/env -I../tests/custom/common"
-
+```
 [CVA6 dashboard](util/toolchain-builder/README.md#Prerequisites)
 
 # CVA6 RISC-V CPU
