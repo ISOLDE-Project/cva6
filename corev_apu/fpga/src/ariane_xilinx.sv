@@ -865,7 +865,7 @@ ariane_peripherals #(
     .AxiIdWidth   ( AxiIdWidthSlaves ),
     .AxiUserWidth ( AxiUserWidth     ),
     .InclUART     ( 1'b1             ),
-    .InclGPIO     ( 1'b1             ),
+    .InclGPIO     ( 1'b1             )
     `ifdef KINTEX7
     .InclSPI      ( 1'b1         ),
     .InclEthernet ( 1'b1         )
@@ -873,8 +873,8 @@ ariane_peripherals #(
     .InclSPI      ( 1'b1         ),
     .InclEthernet ( 1'b0         ) // Ethernet requires RAMB16 fpga/src/ariane-ethernet/dualmem_widen8.sv to be defined
     `elsif VC707
-    .InclSPI      ( 1'b1         ),
-    .InclEthernet ( 1'b0         )
+    //.InclSPI      ( 1'b1         ),
+    //.InclEthernet ( 1'b0         )
     `elsif VCU118
     .InclSPI      ( 1'b0         ),
     .InclEthernet ( 1'b0         )

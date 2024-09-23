@@ -19,7 +19,7 @@
 `ifdef VERILATOR
 `include "custom_uvm_macros.svh"
 `else
-`include "uvm_macros.svh"
+//`include "uvm_macros.svh"
 `endif
 
 module ariane_testharness #(

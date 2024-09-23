@@ -29,7 +29,7 @@ source ./verif/sim/setup-env.sh
 echo "$SPIKE_INSTALL_DIR$"
 
 if ! [ -n "$DV_SIMULATORS" ]; then
-  DV_SIMULATORS=vcs-testharness,spike
+  DV_SIMULATORS=veri-testharness,spike
 fi
 
 if ! [ -n "$UVM_VERBOSITY" ]; then

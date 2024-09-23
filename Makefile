@@ -39,7 +39,7 @@ torture-logs   :=
 # custom elf bin to run with sim or sim-verilator
 elf_file        ?= tmp/riscv-tests/build/benchmarks/dhrystone.riscv
 # board name for bitstream generation. Currently supported: kc705, genesys2, nexys_video
-BOARD          ?= genesys2
+BOARD          ?= vc707
 
 # root path
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -73,11 +73,13 @@ ifeq ($(BOARD), genesys2)
 	CLK_PERIOD_NS            := 20
 else ifeq ($(BOARD), kc705)
 	XILINX_PART              := xc7k325tffg900-2
-	XILINX_BOARD             := xilinx.com:kc705:part0:1.5
+	#XILINX_BOARD             := xilinx.com:kc705:part0:1.5
+	XILINX_BOARD             := xilinx.com:kc705:part0:1.6
 	CLK_PERIOD_NS            := 20
 else ifeq ($(BOARD), vc707)
 	XILINX_PART              := xc7vx485tffg1761-2
-	XILINX_BOARD             := xilinx.com:vc707:part0:1.3
+	#XILINX_BOARD             := xilinx.com:vc707:part0:1.3
+	XILINX_BOARD             := xilinx.com:vc707:part0:1.4
 	CLK_PERIOD_NS            := 20
 else ifeq ($(BOARD), nexys_video)
 	XILINX_PART              := xc7a200tsbg484-1
