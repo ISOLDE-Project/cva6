@@ -1,0 +1,860 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Wed Sep 25 16:59:53 2024
+# Process ID: 3270639
+# Current directory: /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1
+# Command line: vivado -log ariane_xilinx.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source ariane_xilinx.tcl -notrace
+# Log file: /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx.vdi
+# Journal file: /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/vivado.jou
+# Running On: tmdu185u, OS: Linux, CPU Frequency: 3600.000 MHz, CPU Physical cores: 4, Host memory: 33369 MB
+#-----------------------------------------------------------
+source ariane_xilinx.tcl -notrace
+Command: open_checkpoint /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1352.707 ; gain = 0.000 ; free physical = 17964 ; free virtual = 22659
+INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.72 ; elapsed = 00:00:00.72 . Memory (MB): peak = 1967.707 ; gain = 0.000 ; free physical = 17811 ; free virtual = 22507
+INFO: [Netlist 29-17] Analyzing 4543 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2023.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'i_ddr/sys_rst' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'i_xlnx_clk_gen/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2148.863 ; gain = 0.000 ; free physical = 17643 ; free virtual = 22339
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Read PlaceDB: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Read Physdb Files: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Restored from archive | CPU: 0.100000 secs | Memory: 1.900360 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2946.285 ; gain = 0.000 ; free physical = 16915 ; free virtual = 21611
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 593 instances were transformed.
+  IOBUFDS_DIFF_OUT_DCIEN => IOBUFDS_DIFF_OUT_DCIEN (IBUFDS_IBUFDISABLE_INT(x2), INV, OBUFTDS_DCIEN(x2)): 8 instances
+  IOBUF_DCIEN => IOBUF_DCIEN (IBUF_IBUFDISABLE, OBUFT_DCIEN): 64 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 28 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 464 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 28 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2023.2 (64-bit) build 4029153
+open_checkpoint: Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2946.320 ; gain = 1593.613 ; free physical = 16915 ; free virtual = 21611
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx485t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.84 . Memory (MB): peak = 3027.227 ; gain = 72.938 ; free physical = 16915 ; free virtual = 21611
+
+Starting Cache Timing Information Task
+Ending Cache Timing Information Task | Checksum: fa736f33
+
+Time (s): cpu = 00:00:00.86 ; elapsed = 00:00:00.28 . Memory (MB): peak = 3027.227 ; gain = 0.000 ; free physical = 16914 ; free virtual = 21610
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: fa736f33
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3285.023 ; gain = 0.000 ; free physical = 16975 ; free virtual = 21672
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: fa736f33
+
+Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3285.023 ; gain = 0.000 ; free physical = 16975 ; free virtual = 21672
+Phase 1 Initialization | Checksum: fa736f33
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3285.023 ; gain = 0.000 ; free physical = 16975 ; free virtual = 21672
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: fa736f33
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3285.023 ; gain = 0.000 ; free physical = 16974 ; free virtual = 21671
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: fa736f33
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3285.023 ; gain = 0.000 ; free physical = 16963 ; free virtual = 21660
+Phase 2 Timer Update And Timing Data Collection | Checksum: fa736f33
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3285.023 ; gain = 0.000 ; free physical = 16963 ; free virtual = 21660
+
+Phase 3 Retarget
+INFO: [Opt 31-1566] Pulled 131 inverters resulting in an inversion of 1395 pins
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 898303cd
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3309.035 ; gain = 24.012 ; free physical = 16963 ; free virtual = 21659
+Retarget | Checksum: 898303cd
+INFO: [Opt 31-389] Phase Retarget created 92 cells and removed 335 cells
+INFO: [Opt 31-1021] In phase Retarget, 173 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 10 inverter(s) to 49 load pin(s).
+Phase 4 Constant propagation | Checksum: 12e81f3b1
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3309.035 ; gain = 24.012 ; free physical = 16962 ; free virtual = 21659
+Constant propagation | Checksum: 12e81f3b1
+INFO: [Opt 31-389] Phase Constant propagation created 945 cells and removed 2792 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 91 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 10e8d6ea0
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 3309.035 ; gain = 24.012 ; free physical = 16962 ; free virtual = 21659
+Sweep | Checksum: 10e8d6ea0
+INFO: [Opt 31-389] Phase Sweep created 9 cells and removed 2356 cells
+INFO: [Opt 31-1021] In phase Sweep, 749 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 132b1f689
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21846
+BUFG optimization | Checksum: 132b1f689
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][8]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][10]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][11]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][12]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][13]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][17]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][18]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][19]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][20]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][21]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][22]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][23]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][24]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][25]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_READ.read_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][29]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][0]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][10]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][11]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][12]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][13]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][17]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][18]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][19]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][1]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][20]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][21]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][22]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][23]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][24]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][25]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][28]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][29]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][2]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][3]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][4]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][5]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][6]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][7]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_axi_dwidth_converter_dm_master/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/USE_WRITE.write_addr_inst/GEN_CMD_QUEUE.cmd_queue/USE_RTL_FIFO.data_srl_reg[31][8]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_b_channel_0/bid_fifo_0/memory_reg[7][0]_srl8 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_b_channel_0/bid_fifo_0/memory_reg[7][1]_srl8 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_b_channel_0/bid_fifo_0/memory_reg[7][2]_srl8 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_b_channel_0/bid_fifo_0/memory_reg[7][3]_srl8 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_b_channel_0/bid_fifo_0/memory_reg[7][4]_srl8 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][100]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][101]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][102]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][103]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][104]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][105]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][106]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][107]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][108]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][109]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][110]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][111]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][112]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][113]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][114]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][115]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][116]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][117]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][118]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][119]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][120]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][121]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][122]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][123]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][124]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][125]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][126]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][127]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][128]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][129]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][12]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][130]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][131]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][132]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][133]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][134]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][135]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][136]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][137]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][138]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][139]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][140]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][141]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][142]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][143]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][144]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][145]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][146]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][147]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][148]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][149]_srl32 due to none static srl address bits
+WARNING: [Opt 31-1131] Can not pull register out from i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/u_axi_mc/axi_mc_r_channel_0/rd_data_fifo_0/memory_reg[31][14]_srl32 due to none static srl address bits
+INFO: [Common 17-14] Message 'Opt 31-1131' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 132b1f689
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21846
+Shift Register Optimization | Checksum: 132b1f689
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: d8dc70e2
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21846
+Post Processing Netlist | Checksum: d8dc70e2
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 116 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 23126e5e6
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21845
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3341.051 ; gain = 0.000 ; free physical = 17149 ; free virtual = 21845
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 23126e5e6
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21845
+Phase 9 Finalization | Checksum: 23126e5e6
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21845
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |              92  |             335  |                                            173  |
+|  Constant propagation         |             945  |            2792  |                                             91  |
+|  Sweep                        |               9  |            2356  |                                            749  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                            116  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 23126e5e6
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 3341.051 ; gain = 56.027 ; free physical = 17149 ; free virtual = 21845
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3341.051 ; gain = 0.000 ; free physical = 17148 ; free virtual = 21845
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 45 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 1 Total Ports: 90
+Number of Flops added for Enable Generation: 3
+
+Ending PowerOpt Patch Enables Task | Checksum: 13678269d
+
+Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.3 . Memory (MB): peak = 3824.285 ; gain = 0.000 ; free physical = 16749 ; free virtual = 21450
+Ending Power Optimization Task | Checksum: 13678269d
+
+Time (s): cpu = 00:02:25 ; elapsed = 00:02:04 . Memory (MB): peak = 3824.285 ; gain = 483.234 ; free physical = 16749 ; free virtual = 21450
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 149cce355
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 3824.285 ; gain = 0.000 ; free physical = 16746 ; free virtual = 21447
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3824.285 ; gain = 0.000 ; free physical = 16746 ; free virtual = 21447
+Ending Final Cleanup Task | Checksum: 149cce355
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 3824.285 ; gain = 0.000 ; free physical = 16746 ; free virtual = 21447
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3824.285 ; gain = 0.000 ; free physical = 16746 ; free virtual = 21447
+Ending Netlist Obfuscation Task | Checksum: 149cce355
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3824.285 ; gain = 0.000 ; free physical = 16746 ; free virtual = 21447
+INFO: [Common 17-83] Releasing license: Implementation
+42 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:02:56 ; elapsed = 00:02:21 . Memory (MB): peak = 3824.285 ; gain = 877.965 ; free physical = 16746 ; free virtual = 21447
+INFO: [runtcl-4] Executing : report_drc -file ariane_xilinx_drc_opted.rpt -pb ariane_xilinx_drc_opted.pb -rpx ariane_xilinx_drc_opted.rpx
+Command: report_drc -file ariane_xilinx_drc_opted.rpt -pb ariane_xilinx_drc_opted.pb -rpx ariane_xilinx_drc_opted.rpx
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/uic18097/isolde/tools/Vivado/2023.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16708 ; free virtual = 21413
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16708 ; free virtual = 21413
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.16 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16704 ; free virtual = 21417
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.77 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16703 ; free virtual = 21418
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16703 ; free virtual = 21418
+Wrote Device Cache: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16703 ; free virtual = 21420
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.27 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16703 ; free virtual = 21420
+INFO: [Common 17-1381] The checkpoint '/home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16682 ; free virtual = 21407
+Command: place_design -directive RuntimeOptimized
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx485t'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 21 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 46-5] The placer was invoked with the 'RuntimeOptimized' directive.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16451 ; free virtual = 21176
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1355c6b15
+
+Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16401 ; free virtual = 21126
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 16332 ; free virtual = 21057
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Place 30-1907] i_ddr/u_xlnx_mig_7_ddr3_mig/u_iodelay_ctrl/idelayctrl_gen_1.u_idelayctrl_300_400_REPLICATED_0 replication was created for i_ddr/u_xlnx_mig_7_ddr3_mig/u_iodelay_ctrl/idelayctrl_gen_1.u_idelayctrl_300_400 IDELAYCTRL
+WARNING: [Place 30-575] Sub-optimal placement for a clock-capable IO pin and MMCM pair. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	i_ddr/u_xlnx_mig_7_ddr3_mig/u_ddr3_clk_ibuf/diff_input_clk.u_ibufg_sys_clk (IBUFDS.O) is locked to IOB_X1Y276
+	i_ddr/u_xlnx_mig_7_ddr3_mig/u_iodelay_ctrl/clk_ref_mmcm_gen.mmcm_i (MMCME2_ADV.CLKIN1) is provisionally placed by clockplacer on MMCME2_ADV_X0Y3
+Resolution: A dedicated routing path between the two can be used if: (a) The clock-capable IO (CCIO) is placed on a CCIO capable site (b) The MMCM is placed in the same clock region as the CCIO pin. If the IOB is driving multiple MMCMs, all MMCMs must be placed in the same clock region, one clock region above or one clock region below the IOB. Both the above conditions must be met at the same time, else it may lead to longer and less predictable clock insertion delays.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: d3abc4e1
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15302 ; free virtual = 20093
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 131632798
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:17 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15919 ; free virtual = 20651
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 131632798
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:17 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15919 ; free virtual = 20651
+Phase 1 Placer Initialization | Checksum: 131632798
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:17 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15919 ; free virtual = 20651
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 1baa90f6c
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:21 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15909 ; free virtual = 20641
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1a230e89e
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:26 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15909 ; free virtual = 20641
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1a230e89e
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:26 . Memory (MB): peak = 3860.621 ; gain = 0.000 ; free physical = 15909 ; free virtual = 20641
+
+Phase 2.4 Global Placement Core
+Phase 2.4 Global Placement Core | Checksum: 22c1f353a
+
+Time (s): cpu = 00:02:58 ; elapsed = 00:01:05 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16397 ; free virtual = 21131
+Phase 2 Global Placement | Checksum: 22c1f353a
+
+Time (s): cpu = 00:02:58 ; elapsed = 00:01:06 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16397 ; free virtual = 21131
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1dc7ca936
+
+Time (s): cpu = 00:03:12 ; elapsed = 00:01:09 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16397 ; free virtual = 21131
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1a9d0340c
+
+Time (s): cpu = 00:03:37 ; elapsed = 00:01:18 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16397 ; free virtual = 21131
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 12b234ee8
+
+Time (s): cpu = 00:03:39 ; elapsed = 00:01:19 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16397 ; free virtual = 21131
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1707025cd
+
+Time (s): cpu = 00:03:39 ; elapsed = 00:01:19 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16397 ; free virtual = 21131
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 134c3fe45
+
+Time (s): cpu = 00:04:07 ; elapsed = 00:01:26 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16633 ; free virtual = 21367
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 246dfd766
+
+Time (s): cpu = 00:04:36 ; elapsed = 00:01:52 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16632 ; free virtual = 21367
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 1c621125b
+
+Time (s): cpu = 00:04:39 ; elapsed = 00:01:55 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16625 ; free virtual = 21360
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 19dbbbd01
+
+Time (s): cpu = 00:04:40 ; elapsed = 00:01:56 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16623 ; free virtual = 21358
+Phase 3 Detail Placement | Checksum: 19dbbbd01
+
+Time (s): cpu = 00:04:40 ; elapsed = 00:01:56 . Memory (MB): peak = 3874.621 ; gain = 14.000 ; free physical = 16596 ; free virtual = 21331
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 1c580983f
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.139 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1b69291a4
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:05 . Memory (MB): peak = 3902.355 ; gain = 3.969 ; free physical = 16481 ; free virtual = 21216
+INFO: [Place 46-33] Processed net i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]_0, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 1b69291a4
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 3902.355 ; gain = 3.969 ; free physical = 16495 ; free virtual = 21232
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1c580983f
+
+Time (s): cpu = 00:05:38 ; elapsed = 00:02:17 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16602 ; free virtual = 21338
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.201. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1727de243
+
+Time (s): cpu = 00:05:46 ; elapsed = 00:02:24 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+
+Time (s): cpu = 00:05:46 ; elapsed = 00:02:24 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+Phase 4.1 Post Commit Optimization | Checksum: 1727de243
+
+Time (s): cpu = 00:05:46 ; elapsed = 00:02:24 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1727de243
+
+Time (s): cpu = 00:05:47 ; elapsed = 00:02:25 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                2x2|                8x8|
+|___________|___________________|___________________|
+|      South|                1x1|                4x4|
+|___________|___________________|___________________|
+|       East|                2x2|                2x2|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1727de243
+
+Time (s): cpu = 00:05:48 ; elapsed = 00:02:25 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+Phase 4.3 Placer Reporting | Checksum: 1727de243
+
+Time (s): cpu = 00:05:48 ; elapsed = 00:02:26 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16600 ; free virtual = 21337
+
+Time (s): cpu = 00:05:48 ; elapsed = 00:02:26 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 17d7747cd
+
+Time (s): cpu = 00:05:49 ; elapsed = 00:02:26 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+Ending Placer Task | Checksum: 130bec1c0
+
+Time (s): cpu = 00:05:49 ; elapsed = 00:02:26 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+69 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:05:55 ; elapsed = 00:02:29 . Memory (MB): peak = 3902.355 ; gain = 41.734 ; free physical = 16600 ; free virtual = 21337
+INFO: [runtcl-4] Executing : report_io -file ariane_xilinx_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.4 ; elapsed = 00:00:00.5 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16587 ; free virtual = 21324
+INFO: [runtcl-4] Executing : report_utilization -file ariane_xilinx_utilization_placed.rpt -pb ariane_xilinx_utilization_placed.pb
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file ariane_xilinx_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16554 ; free virtual = 21292
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.99 ; elapsed = 00:00:00.22 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16521 ; free virtual = 21275
+Wrote PlaceDB: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16413 ; free virtual = 21251
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16413 ; free virtual = 21251
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16410 ; free virtual = 21250
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16404 ; free virtual = 21250
+Wrote Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16402 ; free virtual = 21250
+Write Physdb Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 3902.355 ; gain = 0.000 ; free physical = 16402 ; free virtual = 21250
+INFO: [Common 17-1381] The checkpoint '/home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:27 ; elapsed = 00:00:13 . Memory (MB): peak = 3926.367 ; gain = 24.012 ; free physical = 15863 ; free virtual = 20708
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx485t'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:08 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15682 ; free virtual = 20453
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+78 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:10 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15682 ; free virtual = 20453
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.23 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15640 ; free virtual = 20426
+Wrote PlaceDB: Time (s): cpu = 00:00:12 ; elapsed = 00:00:04 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15651 ; free virtual = 20521
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15651 ; free virtual = 20521
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15650 ; free virtual = 20521
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15642 ; free virtual = 20521
+Wrote Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15641 ; free virtual = 20521
+Write Physdb Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15641 ; free virtual = 20521
+INFO: [Common 17-1381] The checkpoint '/home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_physopt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 3926.367 ; gain = 0.000 ; free physical = 15731 ; free virtual = 20532
+Command: route_design -directive RuntimeOptimized
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx485t'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-270] Using Router directive 'RuntimeOptimized'.
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 7dabe5eb ConstDB: 0 ShapeSum: b312dbd5 RouteDB: 0
+Post Restoration Checksum: NetGraph: 4a185b29 | NumContArr: 9cdd8762 | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 26c47d7c5
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:00:42 . Memory (MB): peak = 4165.707 ; gain = 223.336 ; free physical = 15653 ; free virtual = 20458
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 26c47d7c5
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:00:43 . Memory (MB): peak = 4167.707 ; gain = 225.336 ; free physical = 15651 ; free virtual = 20456
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 26c47d7c5
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:00:43 . Memory (MB): peak = 4167.707 ; gain = 225.336 ; free physical = 15650 ; free virtual = 20456
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 1ad4bee75
+
+Time (s): cpu = 00:02:28 ; elapsed = 00:01:04 . Memory (MB): peak = 4313.895 ; gain = 371.523 ; free physical = 15501 ; free virtual = 20307
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.119  | TNS=0.000  | WHS=-0.473 | THS=-1735.728|
+
+
+Phase 2.4 Update Timing for Bus Skew
+
+Phase 2.4.1 Update Timing
+Phase 2.4.1 Update Timing | Checksum: 13ce07f69
+
+Time (s): cpu = 00:03:08 ; elapsed = 00:01:15 . Memory (MB): peak = 4313.895 ; gain = 371.523 ; free physical = 15815 ; free virtual = 20621
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.119  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 2.4 Update Timing for Bus Skew | Checksum: 1d248ea12
+
+Time (s): cpu = 00:03:08 ; elapsed = 00:01:15 . Memory (MB): peak = 4313.898 ; gain = 371.527 ; free physical = 15815 ; free virtual = 20624
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.00170509 %
+  Global Horizontal Routing Utilization  = 0.00238174 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 71610
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 71609
+  Number of Partially Routed Nets     = 1
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 10a823979
+
+Time (s): cpu = 00:03:12 ; elapsed = 00:01:16 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 15777 ; free virtual = 20587
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 10a823979
+
+Time (s): cpu = 00:03:12 ; elapsed = 00:01:16 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 15777 ; free virtual = 20587
+
+Phase 3.2 Initial Net Routing
+Phase 3.2 Initial Net Routing | Checksum: 2950052e5
+
+Time (s): cpu = 00:03:51 ; elapsed = 00:01:25 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16063 ; free virtual = 20872
+Phase 3 Initial Routing | Checksum: 2950052e5
+
+Time (s): cpu = 00:03:51 ; elapsed = 00:01:25 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16063 ; free virtual = 20872
+INFO: [Route 35-580] Design has 98 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+===================+=========================================================================================================================================================================================================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                                                                                                                                                                                                     |
++====================+===================+=========================================================================================================================================================================================================================================+
+| oserdes_clk_8      | oserdes_clk_8     | i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[8].oserdes_dq_.ddr.oserdes_dq_i/RST |
+| oserdes_clk_1      | oserdes_clk_1     | i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[8].oserdes_dq_.ddr.oserdes_dq_i/RST |
+| oserdes_clk_2      | oserdes_clk_2     | i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[4].oserdes_dq_.ddr.oserdes_dq_i/RST |
+| oserdes_clk_5      | oserdes_clk_5     | i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[4].oserdes_dq_.sdr.oserdes_dq_i/RST |
+| oserdes_clk_9      | oserdes_clk_9     | i_ddr/u_xlnx_mig_7_ddr3_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[4].oserdes_dq_.ddr.oserdes_dq_i/RST |
++--------------------+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 8862
+ Number of Nodes with overlaps = 767
+ Number of Nodes with overlaps = 223
+ Number of Nodes with overlaps = 78
+ Number of Nodes with overlaps = 45
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.119  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 259674608
+
+Time (s): cpu = 00:05:50 ; elapsed = 00:02:16 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+Phase 4 Rip-up And Reroute | Checksum: 259674608
+
+Time (s): cpu = 00:05:50 ; elapsed = 00:02:17 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 259674608
+
+Time (s): cpu = 00:05:51 ; elapsed = 00:02:17 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 259674608
+
+Time (s): cpu = 00:05:51 ; elapsed = 00:02:17 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+Phase 5 Delay and Skew Optimization | Checksum: 259674608
+
+Time (s): cpu = 00:05:51 ; elapsed = 00:02:17 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1e6122e93
+
+Time (s): cpu = 00:06:11 ; elapsed = 00:02:23 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.119  | TNS=0.000  | WHS=0.033  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 220390059
+
+Time (s): cpu = 00:06:12 ; elapsed = 00:02:23 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+Phase 6 Post Hold Fix | Checksum: 220390059
+
+Time (s): cpu = 00:06:12 ; elapsed = 00:02:23 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 4.07913 %
+  Global Horizontal Routing Utilization  = 4.61954 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 220390059
+
+Time (s): cpu = 00:06:13 ; elapsed = 00:02:24 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 220390059
+
+Time (s): cpu = 00:06:14 ; elapsed = 00:02:24 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 24b14c656
+
+Time (s): cpu = 00:06:22 ; elapsed = 00:02:28 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.119  | TNS=0.000  | WHS=0.033  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 24b14c656
+
+Time (s): cpu = 00:06:40 ; elapsed = 00:02:33 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+INFO: [Route 35-16] Router Completed Successfully
+
+Phase 11 Post-Route Event Processing
+Phase 11 Post-Route Event Processing | Checksum: 1ac7892d3
+
+Time (s): cpu = 00:06:42 ; elapsed = 00:02:35 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+Ending Routing Task | Checksum: 1ac7892d3
+
+Time (s): cpu = 00:06:44 ; elapsed = 00:02:36 . Memory (MB): peak = 4354.051 ; gain = 411.680 ; free physical = 16060 ; free virtual = 20870
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+95 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:06:54 ; elapsed = 00:02:43 . Memory (MB): peak = 4354.051 ; gain = 427.684 ; free physical = 16060 ; free virtual = 20870
+INFO: [runtcl-4] Executing : report_drc -file ariane_xilinx_drc_routed.rpt -pb ariane_xilinx_drc_routed.pb -rpx ariane_xilinx_drc_routed.rpx
+Command: report_drc -file ariane_xilinx_drc_routed.rpt -pb ariane_xilinx_drc_routed.pb -rpx ariane_xilinx_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_drc_routed.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:21 ; elapsed = 00:00:05 . Memory (MB): peak = 4434.090 ; gain = 80.039 ; free physical = 16047 ; free virtual = 20857
+INFO: [runtcl-4] Executing : report_methodology -file ariane_xilinx_methodology_drc_routed.rpt -pb ariane_xilinx_methodology_drc_routed.pb -rpx ariane_xilinx_methodology_drc_routed.rpx
+Command: report_methodology -file ariane_xilinx_methodology_drc_routed.rpt -pb ariane_xilinx_methodology_drc_routed.pb -rpx ariane_xilinx_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:01:22 ; elapsed = 00:00:19 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 16044 ; free virtual = 20854
+INFO: [runtcl-4] Executing : report_power -file ariane_xilinx_power_routed.rpt -pb ariane_xilinx_power_summary_routed.pb -rpx ariane_xilinx_power_routed.rpx
+Command: report_power -file ariane_xilinx_power_routed.rpt -pb ariane_xilinx_power_summary_routed.pb -rpx ariane_xilinx_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+105 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:01:01 ; elapsed = 00:00:21 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 16026 ; free virtual = 20849
+INFO: [runtcl-4] Executing : report_route_status -file ariane_xilinx_route_status.rpt -pb ariane_xilinx_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file ariane_xilinx_timing_summary_routed.rpt -pb ariane_xilinx_timing_summary_routed.pb -rpx ariane_xilinx_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+INFO: [runtcl-4] Executing : report_incremental_reuse -file ariane_xilinx_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file ariane_xilinx_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file ariane_xilinx_bus_skew_routed.rpt -pb ariane_xilinx_bus_skew_routed.pb -rpx ariane_xilinx_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.25 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15980 ; free virtual = 20843
+Wrote PlaceDB: Time (s): cpu = 00:00:10 ; elapsed = 00:00:04 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15914 ; free virtual = 20855
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15914 ; free virtual = 20855
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.79 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15903 ; free virtual = 20859
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.08 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15894 ; free virtual = 20858
+Wrote Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15893 ; free virtual = 20858
+Write Physdb Complete: Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15893 ; free virtual = 20858
+INFO: [Common 17-1381] The checkpoint '/home/uic18097/isolde/git/cva6/corev_apu/fpga/isolde_cva6.runs/impl_1/ariane_xilinx_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 4434.090 ; gain = 0.000 ; free physical = 15984 ; free virtual = 20863
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 25 17:09:54 2024...

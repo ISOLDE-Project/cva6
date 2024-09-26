@@ -80,6 +80,8 @@ update_compile_order -fileset sources_1
 
 add_files -fileset constrs_1 -norecurse constraints/$project.xdc
 
+save_project_as isolde_cva6
+
 synth_design -rtl -name rtl_1
 
 set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]
